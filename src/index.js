@@ -1,21 +1,17 @@
-const number = 15;
+//Import createIntegers from another module
+import { createIntegers } from './utils.js';
 
-if (number === 5 || number === 10 || number === 15) {
-  console.log('The number is either 5, 10, or 15');
-  console.log('Exiting the program.');
-  return;
+function returnStrings(number) {
+  if (number === 15) return "The number is 15";
+  if (number % 5 === 0) return "The number is divisible by 5";
+  if (number > 10 && number <= 20) return "The number is between 10 and 20 inclusive";
+
+  return `The number is ${number}`;
 }
 
-// Verifica se um número está entre 10 e 20 (inclusive)
-console.log(
-  number > 10 && number <= 20
-    ? 'The number is between 10 and 20 inclusive'
-    : 'The number is outside the range'
-);
+const numbers = createIntegers(100, 3);
 
-console.log(
-  number === 15
-    ? 'The number is 15'
-    : `The number is ${number}`
-);
- 
+for (const num of numbers) {
+  const result = returnStrings(num);
+  console.log(result);
+}
