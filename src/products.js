@@ -9,7 +9,12 @@ class Produto {
     this.nome = nome;
     this.fabricante = fabricante;
     this.categoria = categoria;
-    this.numeroMaximoParcelas = numeroMaximoParcelas;
+
+    if (numeroMaximoParcelas < 24) {
+      this.numeroMaximoParcelas = numeroMaximoParcelas;  
+    } else {
+      this.numeroMaximoParcelas = 24;
+    }
   }
 
   getValorDeParcela(numeroDeParcelas) {
@@ -74,3 +79,10 @@ console.log(`Número de produtos para a categoria "decoração": ${listaDeProdut
 console.log(`Número de produtos para a categoria "materiais de construção": ${listaDeProdutos.contarPorCategoria("materiais de construção")}`);
 console.log(`Número de produtos para a categoria "vestuário": ${listaDeProdutos.contarPorCategoria("vestuário")}`);
 console.log(`Número de produtos para a categoria "alimentos": ${listaDeProdutos.contarPorCategoria("alimentos")}`); // Categoria não aceita
+
+// Número de produtos para a categoria "eletrodoméstico": 3
+// Número de produtos para a categoria "decoração": 2
+// Número de produtos para a categoria "materiais de construção": 2
+// Número de produtos para a categoria "vestuário": 3
+// Categoria alimentos não aceita. Categorias aceitas: eletrodoméstico, decoração, materiais de construção, vestuário
+// Número de produtos para a categoria "alimentos": 0
